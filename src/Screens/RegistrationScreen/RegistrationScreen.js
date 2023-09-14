@@ -22,7 +22,7 @@ import {
   Show,
   Title,
   styles,
-} from "./RegistrationScreenStyled";
+} from "./RegistrationScreenStyled.js";
 import avatar from "../../assets/images/Avatar.png";
 
 export const Registration = () => {
