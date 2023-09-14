@@ -15,7 +15,7 @@ export default function App() {
     return null;
   }
 
-  const haveAccount = false; // временный флажок
+  const haveAccount = true; // временный флажок
 
   return (
     <SafeAreaView style={styles.container}>

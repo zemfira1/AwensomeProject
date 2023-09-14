@@ -34,13 +34,16 @@ export const Login = () => {
                 autoComplete="email"
               />
             </InputItem>
-            <InputItem>
+            <InputItem style={styles.passwordInput}>
               <TextInput
                 placeholder="Password"
                 keyboardType="default"
                 autoFocus
                 autoComplete="password"
               />
+              <TouchableOpacity style={styles.showButton}>
+                <ButonText>Show</ButonText>
+              </TouchableOpacity>
             </InputItem>
           </InputArea>
           <View>

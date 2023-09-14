@@ -60,7 +60,6 @@ export const InputItem = styled.View`
   border-radius: 8px;
   background-color: #f6f6f6;
   color: #bdbdbd;
-  cursor: pointer;
 `;
 
 export const ButtonItem = styled.View`
@@ -91,5 +90,17 @@ export const styles = StyleSheet.create({
     cursor: "pointer",
     backgroundColor: "inherit",
     alignItems: "center",
+  },
+  passwordInput: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+  },
+  showButton: {
+    padding: 0,
+    width: "auto",
+    backgroundColor: "inherit",
+    position: "absolute",
+    right: 16,
   },
 });

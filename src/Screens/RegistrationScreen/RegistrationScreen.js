@@ -1,4 +1,4 @@
-import { TextInput, View, TouchableOpacity } from "react-native";
+import { TextInput, View, TouchableOpacity, Text, Button } from "react-native";
 import imageBG from "../../assets/images/photo.png";
 //import ImageSVG from "../assets/images/backgroundsvg.svg";
 import AddIcon from "../../assets/images/addicon.svg";
@@ -12,6 +12,7 @@ import {
   InputItem,
   PhotoArea,
   RegisterField,
+  Show,
   Title,
   styles,
 } from "./RegistrationScreenStyled";
@@ -61,13 +62,16 @@ export const Registration = () => {
                 autoComplete="email"
               />
             </InputItem>
-            <InputItem>
+            <InputItem style={styles.passwordInput}>
               <TextInput
                 placeholder="Password"
                 keyboardType="default"
                 autoFocus
                 autoComplete="password"
               />
+              <TouchableOpacity style={styles.showButton}>
+                <ButonText>Show</ButonText>
+              </TouchableOpacity>
             </InputItem>
           </InputArea>
           <View>
