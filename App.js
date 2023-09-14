@@ -1,8 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet } from "react-native";
 import { useFonts } from "expo-font";
-import { Registration } from "./src/Screens/RegistrationScreen";
-import { Login } from "./src/Screens/LoginScreen";
+import { Registration } from "./src/Screens/RegistrationScreen/RegistrationScreen";
+import { Login } from "./src/Screens/LoginScreen/LoginScreen";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -15,7 +15,7 @@ export default function App() {
     return null;
   }
 
-  const haveAccount = true; // временный флажок
+  const haveAccount = false; // временный флажок
 
   return (
     <SafeAreaView style={styles.container}>
