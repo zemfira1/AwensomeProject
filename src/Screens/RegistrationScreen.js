@@ -3,6 +3,7 @@ import imageBG from "../assets/images/photo.png";
 //import ImageSVG from "../assets/images/backgroundsvg.svg";
 import styled from "styled-components/native";
 import AddIcon from "../assets/images/addicon.svg";
+import DeleteIcon from "../assets/images/deleteicon.svg";
 
 const ImageBack = styled.ImageBackground`
   flex: 1;
@@ -26,7 +27,7 @@ const ImageBtnArea = styled.View`
   width: 25px;
   height: 25px;
   border-radius: 25px;
-  border: 1px solid #ff6c00;
+  border: 1px solid;
   background-color: white;
   position: absolute;
   bottom: 14px;
@@ -39,6 +40,7 @@ const Title = styled.Text`
   font-size: 30px;
   font-family: "Roboto-Medium";
   margin-bottom: 32px;
+  color: #212121;
 `;
 
 const PhotoArea = styled.View`
@@ -93,13 +95,21 @@ export const Registration = () => {
     console.debug("Welcome in your page!");
   };
 
+  const isPhoto = false; // временный флажок
+
   return (
     <ImageBack source={imageBG}>
       <RegisterField>
         <PhotoArea>
-          <ImageBtnArea>
+          <ImageBtnArea
+            style={{ borderColor: isPhoto ? "#BDBDBD" : "#ff6c00" }}
+          >
             <TouchableOpacity style={styles.imageBtn} onPress={addphoto}>
-              <AddIcon width={13} height={13} />
+              {isPhoto ? (
+                <DeleteIcon width={13} height={13} />
+              ) : (
+                <AddIcon width={13} height={13} />
+              )}
             </TouchableOpacity>
           </ImageBtnArea>
         </PhotoArea>
@@ -129,7 +139,7 @@ export const Registration = () => {
           <ButtonArea>
             <ButtonItem style={styles.isActive}>
               <TouchableOpacity style={styles.button} onPress={register}>
-                <ButonText>Register</ButonText>
+                <ButonText style={{ color: "white" }}>Register</ButonText>
               </TouchableOpacity>
             </ButtonItem>
             <ButtonItem>
