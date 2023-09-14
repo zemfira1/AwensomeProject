@@ -62,10 +62,12 @@ export const Registration = () => {
       <RegisterField>
         {dataUserState.avatar ? (
           <PhotoArea>
-            <Image
-              source={{ uri: dataUserState.avatar }}
-              style={styles.avatar}
-            />
+            <View style={{ overflow: "hidden" }}>
+              <Image
+                source={{ uri: dataUserState.avatar }}
+                style={styles.avatar}
+              />
+            </View>
             <ImageBtnArea style={[styles.imageBtn, { borderColor: "#BDBDBD" }]}>
               <TouchableOpacity onPress={deletePhoto}>
                 <View>

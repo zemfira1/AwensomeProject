@@ -57,7 +57,7 @@ export const Login = () => {
                 <ButonText>
                   Don't have an account?
                   <Text style={{ textDecorationLine: "underline" }}>
-                    Register
+                    &nbsp;Register
                   </Text>
                 </ButonText>
               </TouchableOpacity>
