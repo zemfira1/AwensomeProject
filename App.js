@@ -1,11 +1,13 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import { useFonts } from "expo-font";
-import { Registration } from "./src/Screens/RegistrationScreen";
+import { Registration } from "./src/Screens/RegistrationScreen/RegistrationScreen";
+import { Login } from "./src/Screens/LoginScreen/LoginScreen";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
     "Roboto-Regular": require("./src/assets/fonts/Roboto-Regular.ttf"),
+    "Roboto-Medium": require("./src/assets/fonts/Roboto-Medium.ttf"),
     "Roboto-Bold": require("./src/assets/fonts/Roboto-Bold.ttf"),
   });
 
@@ -13,14 +15,13 @@ export default function App() {
     return null;
   }
 
+  const haveAccount = false; // временный флажок
+
   return (
-    <View style={styles.container}>
-      <Registration />
-      {/* <Text style={{ fontFamily: "Roboto-Regular", fontSize: 20 }}>
-        Open up App.js!
-      </Text> */}
+    <SafeAreaView style={styles.container}>
+      {haveAccount ? <Login /> : <Registration />}
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -30,5 +31,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    fontFamily: "Roboto-Regular",
+    fontSize: 16,
   },
 });
