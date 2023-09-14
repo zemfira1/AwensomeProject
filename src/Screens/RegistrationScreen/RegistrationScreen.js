@@ -1,4 +1,11 @@
-import { TextInput, View, TouchableOpacity, Text, Button } from "react-native";
+import {
+  TextInput,
+  View,
+  TouchableOpacity,
+  Text,
+  Button,
+  Image,
+} from "react-native";
 import imageBG from "../../assets/images/photo.png";
 //import ImageSVG from "../assets/images/backgroundsvg.svg";
 import AddIcon from "../../assets/images/addicon.svg";
@@ -16,10 +23,15 @@ import {
   Title,
   styles,
 } from "./RegistrationScreenStyled";
+import avatar from "../../assets/images/Avatar.png";
 
 export const Registration = () => {
-  const addphoto = () => {
+  const addPhoto = () => {
     console.debug("You added photo!");
+  };
+
+  const deletePhoto = () => {
+    console.debug("You deleteded photo!");
   };
 
   const register = () => {
@@ -30,24 +42,30 @@ export const Registration = () => {
     console.debug("Welcome on your page!");
   };
 
-  const isPhoto = false; // временный флажок
+  const isPhoto = true; // временный флажок
 
   return (
     <ImageBack source={imageBG}>
       <RegisterField>
-        <PhotoArea>
-          <ImageBtnArea
-            style={{ borderColor: isPhoto ? "#BDBDBD" : "#ff6c00" }}
-          >
-            <TouchableOpacity style={styles.imageBtn} onPress={addphoto}>
-              {isPhoto ? (
+        {isPhoto ? (
+          <PhotoArea>
+            <Image source={avatar} />
+            <ImageBtnArea style={{ borderColor: "#BDBDBD" }}>
+              <TouchableOpacity style={styles.imageBtn} onPress={deletePhoto}>
                 <DeleteIcon width={13} height={13} />
-              ) : (
+              </TouchableOpacity>
+            </ImageBtnArea>
+          </PhotoArea>
+        ) : (
+          <PhotoArea>
+            <ImageBtnArea style={{ borderColor: "#ff6c00" }}>
+              <TouchableOpacity style={styles.imageBtn} onPress={addPhoto}>
                 <AddIcon width={13} height={13} />
-              )}
-            </TouchableOpacity>
-          </ImageBtnArea>
-        </PhotoArea>
+              </TouchableOpacity>
+            </ImageBtnArea>
+          </PhotoArea>
+        )}
+
         <Title>Registration</Title>
         <View style={{ flex: 1, gap: 43 }}>
           <InputArea>
