@@ -10,15 +10,49 @@ import {
   Title,
   styles,
 } from "./LoginScreenStyled.js";
+import { useState } from "react";
+import { initialState } from "../../initialState";
 
 export const Login = () => {
+  const [dataUserState, setDataUserState] = useState(initialState);
+
+  const setEmail = (email) => {
+    setDataUserState((pervstate) => ({
+      ...pervstate,
+      email: email,
+    }));
+  };
+
+  const setPassword = (password) => {
+    setDataUserState((pervstate) => ({
+      ...pervstate,
+      password: password,
+    }));
+  };
+
   const singIn = () => {
-    console.debug("Welcome!");
+    const currentUser = {
+      email: dataUserState.email,
+      password: dataUserState.password,
+    };
+
+    console.log(currentUser);
+    reset();
+  };
+
+  const reset = () => {
+    setDataUserState((pervstate) => ({
+      ...pervstate,
+      email: "",
+      password: "",
+    }));
   };
 
   const goToRegister = () => {
     console.debug("Welcome on register page!");
   };
+
+  const { email, password } = dataUserState;
 
   return (
     <ImageBack source={imageBG}>
@@ -28,18 +62,22 @@ export const Login = () => {
           <InputArea>
             <InputItem>
               <TextInput
+                name="email"
                 placeholder="Email"
                 keyboardType="email-address"
-                autoFocus
                 autoComplete="email"
+                value={email}
+                onChangeText={setEmail}
               />
             </InputItem>
             <InputItem style={styles.passwordInput}>
               <TextInput
+                name="password"
                 placeholder="Password"
                 keyboardType="default"
-                autoFocus
                 autoComplete="password"
+                value={password}
+                onChangeText={setPassword}
               />
               <TouchableOpacity style={styles.showButton}>
                 <ButonText>Show</ButonText>

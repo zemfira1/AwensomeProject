@@ -16,13 +16,7 @@ import {
 } from "./RegistrationScreenStyled.js";
 import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
-
-const initialState = {
-  login: "",
-  email: "",
-  password: "",
-  avatar: "",
-};
+import { initialState } from "../../initialState";
 
 export const Registration = () => {
   const [dataUserState, setDataUserState] = useState(initialState);
@@ -49,25 +43,57 @@ export const Registration = () => {
     }));
   };
 
+  const setLogin = (login) => {
+    setDataUserState((pervstate) => ({
+      ...pervstate,
+      login: login,
+    }));
+  };
+  const setEmail = (email) => {
+    setDataUserState((pervstate) => ({
+      ...pervstate,
+      email: email,
+    }));
+  };
+  const setPassword = (password) => {
+    setDataUserState((pervstate) => ({
+      ...pervstate,
+      password: password,
+    }));
+  };
+
   const register = () => {
-    console.debug("Welcome!");
+    const newUser = {
+      login: dataUserState.login,
+      email: dataUserState.email,
+      password: dataUserState.password,
+    };
+
+    console.log(newUser);
+    reset();
   };
 
   const comeInYourPage = () => {
     console.debug("Welcome on your page!");
   };
 
+  const reset = () => {
+    setDataUserState((pervstate) => ({
+      ...pervstate,
+      login: "",
+      email: "",
+      password: "",
+    }));
+  };
+
+  const { avatar, login, email, password } = dataUserState;
+
   return (
     <ImageBack source={imageBG}>
       <RegisterField>
-        {dataUserState.avatar ? (
+        {avatar ? (
           <PhotoArea>
-            <View style={{ overflow: "hidden" }}>
-              <Image
-                source={{ uri: dataUserState.avatar }}
-                style={styles.avatar}
-              />
-            </View>
+            <Image source={{ uri: avatar }} style={styles.avatar} />
             <ImageBtnArea style={[styles.imageBtn, { borderColor: "#BDBDBD" }]}>
               <TouchableOpacity onPress={deletePhoto}>
                 <View>
@@ -87,27 +113,36 @@ export const Registration = () => {
             </ImageBtnArea>
           </PhotoArea>
         )}
-
         <Title>Registration</Title>
         <View style={{ flex: 1, gap: 43 }}>
           <InputArea>
             <InputItem>
-              <TextInput placeholder="Login" keyboardType="default" autoFocus />
+              <TextInput
+                name="login"
+                placeholder="Login"
+                keyboardType="default"
+                value={login}
+                onChangeText={setLogin}
+              />
             </InputItem>
             <InputItem>
               <TextInput
+                name="email"
                 placeholder="Email"
                 keyboardType="email-address"
-                autoFocus
                 autoComplete="email"
+                value={email}
+                onChangeText={setEmail}
               />
             </InputItem>
             <InputItem style={styles.passwordInput}>
               <TextInput
+                name="password"
                 placeholder="Password"
                 keyboardType="default"
-                autoFocus
                 autoComplete="password"
+                value={password}
+                onChangeText={setPassword}
               />
               <TouchableOpacity style={styles.showButton}>
                 <ButonText>Show</ButonText>
