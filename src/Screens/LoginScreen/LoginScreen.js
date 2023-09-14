@@ -9,7 +9,7 @@ import {
   RegisterField,
   Title,
   styles,
-} from "./LoginScreenStyled";
+} from "./LoginScreenStyled.js";
 
 export const Login = () => {
   const singIn = () => {
