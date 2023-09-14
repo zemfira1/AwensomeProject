@@ -1,13 +1,5 @@
-import {
-  TextInput,
-  View,
-  TouchableOpacity,
-  Text,
-  Button,
-  Image,
-} from "react-native";
+import { TextInput, View, TouchableOpacity, Image } from "react-native";
 import imageBG from "../../assets/images/photo.png";
-//import ImageSVG from "../assets/images/backgroundsvg.svg";
 import AddIcon from "../../assets/images/addicon.svg";
 import DeleteIcon from "../../assets/images/deleteicon.svg";
 import {
@@ -19,19 +11,42 @@ import {
   InputItem,
   PhotoArea,
   RegisterField,
-  Show,
   Title,
   styles,
 } from "./RegistrationScreenStyled.js";
-import avatar from "../../assets/images/Avatar.png";
+import * as ImagePicker from "expo-image-picker";
+import { useState } from "react";
+
+const initialState = {
+  login: "",
+  email: "",
+  password: "",
+  avatar: "",
+};
 
 export const Registration = () => {
-  const addPhoto = () => {
-    console.debug("You added photo!");
+  const [dataUserState, setDataUserState] = useState(initialState);
+
+  const addPhoto = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+    if (!result.canceled) {
+      setDataUserState((pervstate) => ({
+        ...pervstate,
+        avatar: result.assets[0].uri,
+      }));
+    }
   };
 
   const deletePhoto = () => {
-    console.debug("You deleteded photo!");
+    setDataUserState((pervstate) => ({
+      ...pervstate,
+      avatar: "",
+    }));
   };
 
   const register = () => {
@@ -42,25 +57,30 @@ export const Registration = () => {
     console.debug("Welcome on your page!");
   };
 
-  const isPhoto = true; // временный флажок
-
   return (
     <ImageBack source={imageBG}>
       <RegisterField>
-        {isPhoto ? (
+        {dataUserState.avatar ? (
           <PhotoArea>
-            <Image source={avatar} />
-            <ImageBtnArea style={{ borderColor: "#BDBDBD" }}>
-              <TouchableOpacity style={styles.imageBtn} onPress={deletePhoto}>
-                <DeleteIcon width={13} height={13} />
+            <Image
+              source={{ uri: dataUserState.avatar }}
+              style={styles.avatar}
+            />
+            <ImageBtnArea style={[styles.imageBtn, { borderColor: "#BDBDBD" }]}>
+              <TouchableOpacity onPress={deletePhoto}>
+                <View>
+                  <DeleteIcon width={13} height={13} />
+                </View>
               </TouchableOpacity>
             </ImageBtnArea>
           </PhotoArea>
         ) : (
           <PhotoArea>
-            <ImageBtnArea style={{ borderColor: "#ff6c00" }}>
-              <TouchableOpacity style={styles.imageBtn} onPress={addPhoto}>
-                <AddIcon width={13} height={13} />
+            <ImageBtnArea style={[styles.imageBtn, { borderColor: "#ff6c00" }]}>
+              <TouchableOpacity onPress={addPhoto}>
+                <View>
+                  <AddIcon width={13} height={13} />
+                </View>
               </TouchableOpacity>
             </ImageBtnArea>
           </PhotoArea>

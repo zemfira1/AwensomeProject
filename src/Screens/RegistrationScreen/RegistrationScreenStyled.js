@@ -87,9 +87,7 @@ export const styles = StyleSheet.create({
   },
   imageBtn: {
     color: "#FF6C00",
-    cursor: "pointer",
     backgroundColor: "inherit",
-    alignItems: "center",
   },
   passwordInput: {
     flexDirection: "row",
@@ -102,5 +100,9 @@ export const styles = StyleSheet.create({
     backgroundColor: "inherit",
     position: "absolute",
     right: 16,
+  },
+  avatar: {
+    width: "100%",
+    height: "100%",
   },
 });
