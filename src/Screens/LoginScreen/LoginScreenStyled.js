@@ -54,6 +54,14 @@ export const ButonText = styled.Text`
 `;
 
 export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    fontFamily: "Roboto-Regular",
+    fontSize: 16,
+  },
   button: {
     width: "100%",
     cursor: "pointer",
