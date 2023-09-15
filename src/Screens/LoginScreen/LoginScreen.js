@@ -19,10 +19,12 @@ import {
 } from "./LoginScreenStyled.js";
 import { useState } from "react";
 import { initialState } from "../../initialState";
+import { useNavigation } from "@react-navigation/native";
 
 export const Login = () => {
   const [dataUserState, setDataUserState] = useState(initialState);
   const [isShow, setIsShow] = useState(false);
+  const navigation = useNavigation();
 
   const setEmail = (email) => {
     setDataUserState((pervstate) => ({
@@ -57,7 +59,7 @@ export const Login = () => {
   };
 
   const goToRegister = () => {
-    console.debug("Welcome on register page!");
+    navigation.navigate("Registration");
   };
 
   const { email, password } = dataUserState;

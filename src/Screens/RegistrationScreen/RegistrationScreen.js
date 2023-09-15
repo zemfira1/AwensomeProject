@@ -24,10 +24,12 @@ import {
 import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
 import { initialState } from "../../initialState";
+import { useNavigation } from "@react-navigation/native";
 
 export const Registration = () => {
   const [dataUserState, setDataUserState] = useState(initialState);
   const [isShow, setIsShow] = useState(false);
+  const navigation = useNavigation();
 
   const addPhoto = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -82,7 +84,7 @@ export const Registration = () => {
   };
 
   const comeInYourPage = () => {
-    console.debug("Welcome on your page!");
+    navigation.navigate("Login");
   };
 
   const reset = () => {
