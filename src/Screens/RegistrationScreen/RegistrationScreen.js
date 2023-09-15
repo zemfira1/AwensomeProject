@@ -1,4 +1,11 @@
-import { TextInput, View, TouchableOpacity, Image } from "react-native";
+import {
+  TextInput,
+  View,
+  TouchableOpacity,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import imageBG from "../../assets/images/photo.png";
 import AddIcon from "../../assets/images/addicon.svg";
 import DeleteIcon from "../../assets/images/deleteicon.svg";
@@ -117,33 +124,42 @@ export const Registration = () => {
         <View style={{ flex: 1, gap: 43 }}>
           <InputArea>
             <InputItem>
-              <TextInput
-                name="login"
-                placeholder="Login"
-                keyboardType="default"
-                value={login}
-                onChangeText={setLogin}
-              />
+              <KeyboardAvoidingView
+                behavior={Platform.OS == "ios" ? "padding" : "height"}
+              >
+                <TextInput
+                  placeholder="Login"
+                  keyboardType="default"
+                  value={login}
+                  onChangeText={setLogin}
+                />
+              </KeyboardAvoidingView>
             </InputItem>
             <InputItem>
-              <TextInput
-                name="email"
-                placeholder="Email"
-                keyboardType="email-address"
-                autoComplete="email"
-                value={email}
-                onChangeText={setEmail}
-              />
+              <KeyboardAvoidingView
+                behavior={Platform.OS == "ios" ? "padding" : "height"}
+              >
+                <TextInput
+                  placeholder="Email"
+                  keyboardType="email-address"
+                  autoComplete="email"
+                  value={email}
+                  onChangeText={setEmail}
+                />
+              </KeyboardAvoidingView>
             </InputItem>
             <InputItem style={styles.passwordInput}>
-              <TextInput
-                name="password"
-                placeholder="Password"
-                keyboardType="default"
-                autoComplete="password"
-                value={password}
-                onChangeText={setPassword}
-              />
+              <KeyboardAvoidingView
+                behavior={Platform.OS == "ios" ? "padding" : "height"}
+              >
+                <TextInput
+                  placeholder="Password"
+                  keyboardType="default"
+                  autoComplete="password"
+                  value={password}
+                  onChangeText={setPassword}
+                />
+              </KeyboardAvoidingView>
               <TouchableOpacity style={styles.showButton}>
                 <ButonText>Show</ButonText>
               </TouchableOpacity>

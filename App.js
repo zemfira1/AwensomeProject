@@ -1,5 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet } from "react-native";
+import {
+  Keyboard,
+  SafeAreaView,
+  StyleSheet,
+  TouchableWithoutFeedback,
+} from "react-native";
 import { useFonts } from "expo-font";
 import { Registration } from "./src/Screens/RegistrationScreen/RegistrationScreen";
 import { Login } from "./src/Screens/LoginScreen/LoginScreen";
@@ -18,10 +23,12 @@ export default function App() {
   const haveAccount = true; // временный флажок
 
   return (
-    <SafeAreaView style={styles.container}>
-      {haveAccount ? <Login /> : <Registration />}
-      <StatusBar style="auto" />
-    </SafeAreaView>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <SafeAreaView style={styles.container}>
+        {haveAccount ? <Login /> : <Registration />}
+        <StatusBar style="auto" />
+      </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 }
 

@@ -1,4 +1,11 @@
-import { TextInput, View, TouchableOpacity, Text } from "react-native";
+import {
+  TextInput,
+  View,
+  TouchableOpacity,
+  Text,
+  Platform,
+  KeyboardAvoidingView,
+} from "react-native";
 import imageBG from "../../assets/images/photo.png";
 import {
   ButonText,
@@ -61,24 +68,30 @@ export const Login = () => {
         <View style={{ flex: 1, gap: 43 }}>
           <InputArea>
             <InputItem>
-              <TextInput
-                name="email"
-                placeholder="Email"
-                keyboardType="email-address"
-                autoComplete="email"
-                value={email}
-                onChangeText={setEmail}
-              />
+              <KeyboardAvoidingView
+                behavior={Platform.OS == "ios" ? "padding" : "height"}
+              >
+                <TextInput
+                  placeholder="Email"
+                  keyboardType="email-address"
+                  autoComplete="email"
+                  value={email}
+                  onChangeText={setEmail}
+                />
+              </KeyboardAvoidingView>
             </InputItem>
             <InputItem style={styles.passwordInput}>
-              <TextInput
-                name="password"
-                placeholder="Password"
-                keyboardType="default"
-                autoComplete="password"
-                value={password}
-                onChangeText={setPassword}
-              />
+              <KeyboardAvoidingView
+                behavior={Platform.OS == "ios" ? "padding" : "height"}
+              >
+                <TextInput
+                  placeholder="Password"
+                  keyboardType="default"
+                  autoComplete="password"
+                  value={password}
+                  onChangeText={setPassword}
+                />
+              </KeyboardAvoidingView>
               <TouchableOpacity style={styles.showButton}>
                 <ButonText>Show</ButonText>
               </TouchableOpacity>
