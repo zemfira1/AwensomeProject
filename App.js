@@ -20,7 +20,7 @@ export default function App() {
     return null;
   }
 
-  const haveAccount = true; // временный флажок
+  const haveAccount = false; // временный флажок
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>

@@ -22,6 +22,7 @@ import { initialState } from "../../initialState";
 
 export const Login = () => {
   const [dataUserState, setDataUserState] = useState(initialState);
+  const [isShow, setIsShow] = useState(false);
 
   const setEmail = (email) => {
     setDataUserState((pervstate) => ({
@@ -90,11 +91,24 @@ export const Login = () => {
                   autoComplete="password"
                   value={password}
                   onChangeText={setPassword}
+                  secureTextEntry={!isShow ? true : false}
                 />
               </KeyboardAvoidingView>
-              <TouchableOpacity style={styles.showButton}>
-                <ButonText>Show</ButonText>
-              </TouchableOpacity>
+              {!isShow ? (
+                <TouchableOpacity
+                  style={styles.showButton}
+                  onPress={() => setIsShow(true)}
+                >
+                  <ButonText>Show</ButonText>
+                </TouchableOpacity>
+              ) : (
+                <TouchableOpacity
+                  style={styles.showButton}
+                  onPress={() => setIsShow(false)}
+                >
+                  <ButonText>Hide</ButonText>
+                </TouchableOpacity>
+              )}
             </InputItem>
           </InputArea>
           <View>
