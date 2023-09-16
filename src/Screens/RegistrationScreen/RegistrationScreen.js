@@ -33,7 +33,11 @@ export const Registration = () => {
   const [dataUserState, setDataUserState] = useState(initialState);
   const [isShow, setIsShow] = useState(false);
   const navigation = useNavigation();
-  const [imputBorderColor, setImputBorderColor] = useState("#BDBDBD");
+  const defaultBorderColor = "#BDBDBD";
+  const accentBorderColor = "#FF6C00";
+  const [loginBorderColor, setLoginBorderColor] = useState(defaultBorderColor);
+  const [emailBorderColor, setEmailBorderColor] = useState(defaultBorderColor);
+  const [passBorderColor, setPassBorderColor] = useState(defaultBorderColor);
 
   const addPhoto = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -83,7 +87,11 @@ export const Registration = () => {
       password: dataUserState.password,
     };
 
-    navigation.navigate("PostsScreen");
+    navigation.navigate("Posts", {
+      avatar: dataUserState.avatar,
+      name: dataUserState.login,
+      email: dataUserState.email,
+    });
 
     console.log(newUser);
     reset();
@@ -138,7 +146,7 @@ export const Registration = () => {
             <Title>Registration</Title>
             <View style={{ flex: 1, gap: 43 }}>
               <InputArea>
-                <InputItem style={{ borderColor: imputBorderColor }}>
+                <InputItem style={{ borderColor: loginBorderColor }}>
                   <KeyboardAvoidingView
                     behavior={Platform.OS == "ios" ? "padding" : "height"}
                   >
@@ -147,12 +155,12 @@ export const Registration = () => {
                       keyboardType="default"
                       value={login}
                       onChangeText={setLogin}
-                      onFocus={() => setImputBorderColor("#FF6C00")}
-                      onBlur={() => setImputBorderColor("#BDBDBD")}
+                      onFocus={() => setLoginBorderColor(accentBorderColor)}
+                      onBlur={() => setLoginBorderColor(defaultBorderColor)}
                     />
                   </KeyboardAvoidingView>
                 </InputItem>
-                <InputItem style={{ borderColor: imputBorderColor }}>
+                <InputItem style={{ borderColor: emailBorderColor }}>
                   <KeyboardAvoidingView
                     behavior={Platform.OS == "ios" ? "padding" : "height"}
                   >
@@ -162,15 +170,15 @@ export const Registration = () => {
                       autoComplete="email"
                       value={email}
                       onChangeText={setEmail}
-                      onFocus={() => setImputBorderColor("#FF6C00")}
-                      onBlur={() => setImputBorderColor("#BDBDBD")}
+                      onFocus={() => setEmailBorderColor(accentBorderColor)}
+                      onBlur={() => setEmailBorderColor(defaultBorderColor)}
                     />
                   </KeyboardAvoidingView>
                 </InputItem>
                 <InputItem
                   style={[
                     styles.passwordInput,
-                    { borderColor: imputBorderColor },
+                    { borderColor: passBorderColor },
                   ]}
                 >
                   <KeyboardAvoidingView
@@ -183,8 +191,8 @@ export const Registration = () => {
                       value={password}
                       onChangeText={setPassword}
                       secureTextEntry={!isShow ? true : false}
-                      onFocus={() => setImputBorderColor("#FF6C00")}
-                      onBlur={() => setImputBorderColor("#BDBDBD")}
+                      onFocus={() => setPassBorderColor(accentBorderColor)}
+                      onBlur={() => setPassBorderColor(defaultBorderColor)}
                     />
                   </KeyboardAvoidingView>
                   {!isShow ? (

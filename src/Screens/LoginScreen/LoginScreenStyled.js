@@ -64,7 +64,6 @@ export const styles = StyleSheet.create({
   },
   button: {
     width: "100%",
-    cursor: "pointer",
     backgroundColor: "inherit",
     alignItems: "center",
   },
@@ -73,7 +72,6 @@ export const styles = StyleSheet.create({
   },
   imageBtn: {
     color: "#FF6C00",
-    cursor: "pointer",
     backgroundColor: "inherit",
     alignItems: "center",
   },

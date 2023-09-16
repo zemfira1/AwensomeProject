@@ -86,7 +86,6 @@ export const styles = StyleSheet.create({
   },
   button: {
     width: "100%",
-    cursor: "pointer",
     backgroundColor: "inherit",
     alignItems: "center",
   },

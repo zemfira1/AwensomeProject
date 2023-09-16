@@ -6,6 +6,8 @@ import {
   Platform,
   KeyboardAvoidingView,
   Keyboard,
+  SafeAreaView,
+  TouchableWithoutFeedback,
 } from "react-native";
 import imageBG from "../../assets/images/photo.png";
 import {
@@ -21,13 +23,15 @@ import {
 import { useState } from "react";
 import { initialState } from "../../initialState";
 import { useNavigation } from "@react-navigation/native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 export const Login = () => {
   const [dataUserState, setDataUserState] = useState(initialState);
   const [isShow, setIsShow] = useState(false);
   const navigation = useNavigation();
+  const defaultBorderColor = "#BDBDBD";
+  const accentBorderColor = "#FF6C00";
+  const [emailBorderColor, setEmailBorderColor] = useState(defaultBorderColor);
+  const [passBorderColor, setPassBorderColor] = useState(defaultBorderColor);
 
   const setEmail = (email) => {
     setDataUserState((pervstate) => ({
@@ -49,7 +53,7 @@ export const Login = () => {
       password: dataUserState.password,
     };
 
-    navigation.navigate("PostsScreen");
+    navigation.navigate("Posts");
 
     console.log(currentUser);
     reset();
@@ -77,7 +81,7 @@ export const Login = () => {
             <Title>Sing-in</Title>
             <View style={{ flex: 1, gap: 43 }}>
               <InputArea>
-                <InputItem>
+                <InputItem style={{ borderColor: emailBorderColor }}>
                   <KeyboardAvoidingView
                     behavior={Platform.OS == "ios" ? "padding" : "height"}
                   >
@@ -87,10 +91,17 @@ export const Login = () => {
                       autoComplete="email"
                       value={email}
                       onChangeText={setEmail}
+                      onFocus={() => setEmailBorderColor(accentBorderColor)}
+                      onBlur={() => setEmailBorderColor(defaultBorderColor)}
                     />
                   </KeyboardAvoidingView>
                 </InputItem>
-                <InputItem style={styles.passwordInput}>
+                <InputItem
+                  style={[
+                    styles.passwordInput,
+                    { borderColor: passBorderColor },
+                  ]}
+                >
                   <KeyboardAvoidingView
                     behavior={Platform.OS == "ios" ? "padding" : "height"}
                   >
@@ -101,6 +112,8 @@ export const Login = () => {
                       value={password}
                       onChangeText={setPassword}
                       secureTextEntry={!isShow ? true : false}
+                      onFocus={() => setPassBorderColor(accentBorderColor)}
+                      onBlur={() => setPassBorderColor(defaultBorderColor)}
                     />
                   </KeyboardAvoidingView>
                   {!isShow ? (
