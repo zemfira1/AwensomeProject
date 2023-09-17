@@ -1,4 +1,4 @@
-import { NavigationContainer, useRoute } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 import React from "react";
 import {
   View,
@@ -6,7 +6,6 @@ import {
   SafeAreaView,
   TouchableWithoutFeedback,
   Keyboard,
-  TouchableOpacity,
 } from "react-native";
 import { styles } from "../RegistrationScreen/RegistrationScreenStyled";
 import {
@@ -122,7 +121,7 @@ export const Posts = () => {
 //           marginBottom: 22,
 //         },
 //         tabBarActiveBackgroundColor: "#FF6C00",
-//         tabBarInactiveBackgroundColor: "#bdbdbd",
+//         tabBarInactiveBackgroundColor: "#fff",
 //       }}
 //     >
 //       <Tab.Screen

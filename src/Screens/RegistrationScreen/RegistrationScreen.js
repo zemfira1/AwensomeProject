@@ -30,7 +30,7 @@ import { initialState } from "../../initialState";
 import { useNavigation } from "@react-navigation/native";
 
 export const Registration = () => {
-  const [dataUserState, setDataUserState] = useState(initialState);
+  const [dataUserState, setDataUserState] = useState(initialState.user);
   const [isShow, setIsShow] = useState(false);
   const navigation = useNavigation();
   const defaultBorderColor = "#BDBDBD";
@@ -120,27 +120,23 @@ export const Registration = () => {
             {avatar ? (
               <PhotoArea>
                 <Image source={{ uri: avatar }} style={styles.avatar} />
-                <ImageBtnArea
-                  style={[styles.imageBtn, { borderColor: "#BDBDBD" }]}
-                >
-                  <TouchableOpacity onPress={deletePhoto}>
-                    <View>
-                      <DeleteIcon width={13} height={13} />
-                    </View>
-                  </TouchableOpacity>
-                </ImageBtnArea>
+                <TouchableOpacity onPress={deletePhoto}>
+                  <ImageBtnArea
+                    style={[styles.imageBtn, { borderColor: "#BDBDBD" }]}
+                  >
+                    <DeleteIcon width={13} height={13} />
+                  </ImageBtnArea>
+                </TouchableOpacity>
               </PhotoArea>
             ) : (
               <PhotoArea>
-                <ImageBtnArea
-                  style={[styles.imageBtn, { borderColor: "#ff6c00" }]}
-                >
-                  <TouchableOpacity onPress={addPhoto}>
-                    <View>
-                      <AddIcon width={13} height={13} />
-                    </View>
-                  </TouchableOpacity>
-                </ImageBtnArea>
+                <TouchableOpacity onPress={addPhoto}>
+                  <ImageBtnArea
+                    style={[styles.imageBtn, { borderColor: "#ff6c00" }]}
+                  >
+                    <AddIcon width={13} height={13} />
+                  </ImageBtnArea>
+                </TouchableOpacity>
               </PhotoArea>
             )}
             <Title>Registration</Title>
@@ -213,19 +209,19 @@ export const Registration = () => {
                 </InputItem>
               </InputArea>
               <View>
-                <ButtonItem style={styles.isActive}>
-                  <TouchableOpacity style={styles.button} onPress={register}>
+                <TouchableOpacity style={styles.button} onPress={register}>
+                  <ButtonItem style={styles.isActive}>
                     <ButonText style={{ color: "white" }}>Register</ButonText>
-                  </TouchableOpacity>
-                </ButtonItem>
-                <ButtonItem>
-                  <TouchableOpacity
-                    style={styles.button}
-                    onPress={comeInYourPage}
-                  >
+                  </ButtonItem>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={comeInYourPage}
+                >
+                  <ButtonItem>
                     <ButonText>Already have an account? To come in</ButonText>
-                  </TouchableOpacity>
-                </ButtonItem>
+                  </ButtonItem>
+                </TouchableOpacity>
               </View>
             </View>
           </RegisterField>

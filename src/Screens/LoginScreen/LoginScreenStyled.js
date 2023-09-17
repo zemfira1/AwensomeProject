@@ -51,6 +51,7 @@ export const ButtonItem = styled.View`
 
 export const ButonText = styled.Text`
   color: #1b4371;
+  font-size: 16px;
 `;
 
 export const styles = StyleSheet.create({

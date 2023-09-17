@@ -27,7 +27,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <MainStack.Navigator initialRouteName="Registration">
+      <MainStack.Navigator initialRouteName="CreatePost">
         <MainStack.Screen
           name="Registration"
           component={Registration}
@@ -46,6 +46,7 @@ export default function App() {
             headerStyle: styles.headerStyle,
             headerTintColor: "#212121",
             headerTitleStyle: styles.headerTitleStyle,
+            headerTitleAlign: "center",
             headerRight: () => (
               <TouchableOpacity
                 style={styles.logOut}
@@ -65,6 +66,7 @@ export default function App() {
             headerStyle: styles.headerStyle,
             headerTintColor: "#212121",
             headerTitleStyle: styles.headerTitleStyle,
+            headerTitleAlign: "center",
           }}
         />
         <MainStack.Screen
@@ -80,6 +82,7 @@ export default function App() {
             headerStyle: styles.headerStyle,
             headerTintColor: "#212121",
             headerTitleStyle: styles.headerTitleStyle,
+            headerTitleAlign: "center",
           }}
         />
       </MainStack.Navigator>

@@ -134,24 +134,21 @@ export const Login = () => {
                 </InputItem>
               </InputArea>
               <View>
-                <ButtonItem style={styles.isActive}>
-                  <TouchableOpacity style={styles.button} onPress={singIn}>
+                <TouchableOpacity style={styles.button} onPress={singIn}>
+                  <ButtonItem style={styles.isActive}>
                     <ButonText style={{ color: "white" }}>Sing-in</ButonText>
-                  </TouchableOpacity>
-                </ButtonItem>
-                <ButtonItem>
-                  <TouchableOpacity
-                    style={styles.button}
-                    onPress={goToRegister}
-                  >
+                  </ButtonItem>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={goToRegister}>
+                  <ButtonItem>
                     <ButonText>
                       Don't have an account?
                       <Text style={{ textDecorationLine: "underline" }}>
                         &nbsp;Register
                       </Text>
                     </ButonText>
-                  </TouchableOpacity>
-                </ButtonItem>
+                  </ButtonItem>
+                </TouchableOpacity>
               </View>
             </View>
           </RegisterField>

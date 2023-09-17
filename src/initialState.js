@@ -1,6 +1,19 @@
 export const initialState = {
-  login: "",
-  email: "",
-  password: "",
-  avatar: "",
+  user: {
+    login: "",
+    email: "",
+    password: "",
+    avatar: "",
+  },
+  posts: {
+    postsList: [],
+    isLoading: false,
+    isError: false,
+    post: {
+      id: "",
+      image: "",
+      name: "",
+      location: "",
+    },
+  },
 };
