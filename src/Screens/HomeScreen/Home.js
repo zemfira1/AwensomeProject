@@ -6,7 +6,6 @@ import { Profile } from "../ProfileScreen/ProfileScreen";
 import { Ionicons } from "@expo/vector-icons";
 import { Posts } from "../PostsScreen/PostsScreen";
 import { styles } from "../RegistrationScreen/RegistrationScreenStyled";
-import LogOutIcon from "../../assets/images/logout.svg";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -21,6 +20,7 @@ export const Home = () => {
       initialRouteName="Posts"
       screenOptions={({ route }) => ({
         tabBarShowLabel: false,
+        tabBarStyle: { display: route.name === "CreatePost" ? "none" : "flex" },
         tabBarIcon: ({ focused, color }) => {
           if (route.name === "Posts") {
             return (

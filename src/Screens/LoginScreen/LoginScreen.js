@@ -93,6 +93,7 @@ export const Login = () => {
                       onChangeText={setEmail}
                       onFocus={() => setEmailBorderColor(accentBorderColor)}
                       onBlur={() => setEmailBorderColor(defaultBorderColor)}
+                      placeholderTextColor={defaultBorderColor}
                     />
                   </KeyboardAvoidingView>
                 </InputItem>
@@ -114,6 +115,7 @@ export const Login = () => {
                       secureTextEntry={!isShow ? true : false}
                       onFocus={() => setPassBorderColor(accentBorderColor)}
                       onBlur={() => setPassBorderColor(defaultBorderColor)}
+                      placeholderTextColor={defaultBorderColor}
                     />
                   </KeyboardAvoidingView>
                   {!isShow ? (

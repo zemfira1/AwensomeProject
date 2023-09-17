@@ -133,12 +133,14 @@ export const CreatePost = () => {
               >
                 <TextInput
                   style={styles.inputPlaceholder}
+                  autoCapitalize="words"
                   placeholder="Name..."
                   keyboardType="default"
                   value={name}
                   onChangeText={setName}
                   onFocus={() => setNameBorderColor(accentColor)}
                   onBlur={() => setNameBorderColor(defaultColor)}
+                  placeholderTextColor={defaultColor}
                 />
               </KeyboardAvoidingView>
             </InputItem>
@@ -160,12 +162,14 @@ export const CreatePost = () => {
                 </TouchableOpacity>
                 <TextInput
                   style={styles.inputPlaceholder}
+                  autoCapitalize="words"
                   placeholder="Location..."
                   keyboardType="default"
                   value={location}
                   onChangeText={setLocation}
                   onFocus={() => setLocationBorderColor(accentColor)}
                   onBlur={() => setLocationBorderColor(defaultColor)}
+                  placeholderTextColor={defaultColor}
                 />
               </KeyboardAvoidingView>
             </InputItem>

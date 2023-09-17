@@ -146,11 +146,13 @@ export const Registration = () => {
                   >
                     <TextInput
                       placeholder="Login"
+                      autoCapitalize="words"
                       keyboardType="default"
                       value={login}
                       onChangeText={setLogin}
                       onFocus={() => setLoginBorderColor(accentBorderColor)}
                       onBlur={() => setLoginBorderColor(defaultBorderColor)}
+                      placeholderTextColor={defaultBorderColor}
                     />
                   </KeyboardAvoidingView>
                 </InputItem>
@@ -166,6 +168,7 @@ export const Registration = () => {
                       onChangeText={setEmail}
                       onFocus={() => setEmailBorderColor(accentBorderColor)}
                       onBlur={() => setEmailBorderColor(defaultBorderColor)}
+                      placeholderTextColor={defaultBorderColor}
                     />
                   </KeyboardAvoidingView>
                 </InputItem>
@@ -187,6 +190,7 @@ export const Registration = () => {
                       secureTextEntry={!isShow ? true : false}
                       onFocus={() => setPassBorderColor(accentBorderColor)}
                       onBlur={() => setPassBorderColor(defaultBorderColor)}
+                      placeholderTextColor={defaultBorderColor}
                     />
                   </KeyboardAvoidingView>
                   {!isShow ? (

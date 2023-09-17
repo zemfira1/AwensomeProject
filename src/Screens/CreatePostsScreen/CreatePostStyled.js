@@ -82,7 +82,7 @@ export const TrashButton = styled.View`
   border-radius: 20px;
   background-color: #f6f6f6;
   position: absolute;
-  bottom: 34px;
+  bottom: 20px;
 `;
 
 export const styles = StyleSheet.create({
