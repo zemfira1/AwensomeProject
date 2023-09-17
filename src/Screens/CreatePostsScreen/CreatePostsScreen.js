@@ -89,7 +89,7 @@ export const CreatePost = () => {
     console.log(postsListState);
 
     reset();
-    navigation.navigate("Login"); //Login времнно, т.к. Posts выдает ошибку аватара
+    navigation.navigate("Posts");
   };
 
   const reset = () => {

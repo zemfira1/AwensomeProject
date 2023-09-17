@@ -18,7 +18,6 @@ export const ImageArea = styled.View`
   background-color: #f6f6f6;
   justify-content: center;
   align-items: center;
-  position: relative;
   margin-bottom: 60px;
 `;
 
@@ -48,11 +47,14 @@ export const InputItem = styled.View`
   min-width: 100%;
   height: 50px;
   padding: 16px 0 16px 0;
-  border-bottom: 1px solid;
-  border-bottom-color: #bdbdbd;
+  border-bottom: 1px solid red;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  /* border-bottom-color: #bdbdbd; 
   border-top-color: transparent;
   border-left-color: transparent;
-  border-right-color: transparent;
+  border-right-color: transparent;*/
   background-color: inherit;
   color: #bdbdbd;
   font-size: 16px;

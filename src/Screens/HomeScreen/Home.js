@@ -7,17 +7,20 @@ import { Ionicons } from "@expo/vector-icons";
 import { Posts } from "../PostsScreen/PostsScreen";
 import { styles } from "../RegistrationScreen/RegistrationScreenStyled";
 import LogOutIcon from "../../assets/images/logout.svg";
+import { MaterialIcons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const Tab = createBottomTabNavigator();
 
 export const Home = () => {
+  const navigation = useNavigation();
+
   return (
     <Tab.Navigator
       initialRouteName="Posts"
-      //   sceneContainerStyle={{
-      //     height: 88,
-      //   }}
       screenOptions={({ route }) => ({
+        tabBarShowLabel: false,
         tabBarIcon: ({ focused, color }) => {
           if (route.name === "Posts") {
             return (
@@ -71,7 +74,7 @@ export const Home = () => {
               style={styles.logOut}
               onPress={() => console.debug("LogOut")}
             >
-              <LogOutIcon width={24} height={24} />
+              <MaterialIcons name="logout" size={24} color="#BDBDBD" />
             </TouchableOpacity>
           ),
         }}
@@ -85,6 +88,14 @@ export const Home = () => {
           headerTintColor: "#212121",
           headerTitleStyle: styles.headerTitleStyle,
           headerTitleAlign: "center",
+          headerLeft: () => (
+            <TouchableOpacity
+              style={styles.arrow}
+              onPress={() => navigation.navigate("Posts")}
+            >
+              <AntDesign name="arrowleft" size={24} color="#BDBDBD" />
+            </TouchableOpacity>
+          ),
         }}
       />
       <Tab.Screen

@@ -21,7 +21,15 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
+    <NavigationContainer
+      sceneContainerStyle={{
+        height: 88,
+        backgroundColor: "#FFFFFF",
+        borderTopWidth: 1,
+        borderTopColor: "#BDBDBD",
+        shadowColor: "rgba(0, 0, 0, 0.3)",
+      }}
+    >
       <MainStack.Navigator initialRouteName="Registration">
         <MainStack.Screen
           name="Registration"
