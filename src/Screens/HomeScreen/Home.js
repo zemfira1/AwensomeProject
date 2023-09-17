@@ -12,7 +12,6 @@ export const Home = () => {
   useEffect(() => {
     navigation.navigate("Home", {
       screen: "Posts",
-      params: { userId: "e2ee4" },
     });
   });
 
