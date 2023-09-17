@@ -1,42 +1,22 @@
-import React, { useEffect } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React from "react";
+import { TouchableOpacity } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { CreatePost } from "../CreatePostsScreen/CreatePostsScreen";
 import { Profile } from "../ProfileScreen/ProfileScreen";
 import { Ionicons } from "@expo/vector-icons";
-import { useNavigation, useRoute } from "@react-navigation/native";
 import { Posts } from "../PostsScreen/PostsScreen";
-
-export const Home = () => {
-  const navigation = useNavigation();
-  useEffect(() => {
-    navigation.navigate("Home", {
-      screen: "Posts",
-    });
-  });
-
-  return (
-    <View style={styles.container}>
-      <Text>Home Screen</Text>
-      <MyTabs />
-    </View>
-  );
-};
+import { styles } from "../RegistrationScreen/RegistrationScreenStyled";
+import LogOutIcon from "../../assets/images/logout.svg";
 
 const Tab = createBottomTabNavigator();
 
-export const MyTabs = () => {
+export const Home = () => {
   return (
     <Tab.Navigator
-      sceneContainerStyle={{
-        flexDirection: "row",
-        height: 88,
-        backgroundColor: "#FFFFFF",
-        borderTopWidth: 1,
-        borderTopColor: "#BDBDBD",
-        shadowColor: "rgba(0, 0, 0, 0.3)",
-        gap: 60,
-      }}
+      initialRouteName="Posts"
+      //   sceneContainerStyle={{
+      //     height: 88,
+      //   }}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color }) => {
           if (route.name === "Posts") {
@@ -68,7 +48,6 @@ export const MyTabs = () => {
         tabBarInactiveTintColor: "#bdbdbd",
         tabBarActiveTintColor: "#fff",
         tabBarItemStyle: {
-          //position: "absolute",
           borderRadius: 20,
           width: 70,
           height: 40,
@@ -78,17 +57,41 @@ export const MyTabs = () => {
         tabBarInactiveBackgroundColor: "#fff",
       })}
     >
-      <Tab.Screen name="Posts" component={Profile} />
-      <Tab.Screen name="CreatePost" component={CreatePost} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen
+        name="Posts"
+        component={Posts}
+        options={{
+          title: "Posts",
+          headerStyle: styles.headerStyle,
+          headerTintColor: "#212121",
+          headerTitleStyle: styles.headerTitleStyle,
+          headerTitleAlign: "center",
+          headerRight: () => (
+            <TouchableOpacity
+              style={styles.logOut}
+              onPress={() => console.debug("LogOut")}
+            >
+              <LogOutIcon width={24} height={24} />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="CreatePost"
+        component={CreatePost}
+        options={{
+          title: "Create post",
+          headerStyle: styles.headerStyle,
+          headerTintColor: "#212121",
+          headerTitleStyle: styles.headerTitleStyle,
+          headerTitleAlign: "center",
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{ headerShown: false }}
+      />
     </Tab.Navigator>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

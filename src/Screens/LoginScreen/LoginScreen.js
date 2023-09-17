@@ -53,7 +53,7 @@ export const Login = () => {
       password: dataUserState.password,
     };
 
-    navigation.navigate("Posts");
+    navigation.navigate("Home");
 
     console.log(currentUser);
     reset();

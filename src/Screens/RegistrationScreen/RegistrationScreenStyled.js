@@ -25,9 +25,7 @@ export const ImageBtnArea = styled.View`
   border-radius: 25px;
   border: 1px solid;
   background-color: white;
-  position: absolute;
-  bottom: 14px;
-  right: -12px;
+
   justify-content: center;
   align-items: center;
 `;
@@ -113,5 +111,10 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     borderRadius: 16,
+  },
+  touch: {
+    position: "absolute",
+    bottom: 14,
+    right: -12,
   },
 });

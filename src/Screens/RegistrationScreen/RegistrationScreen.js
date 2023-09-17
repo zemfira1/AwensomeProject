@@ -87,13 +87,11 @@ export const Registration = () => {
       password: dataUserState.password,
     };
 
-    navigation.navigate("Posts", {
-      avatar: dataUserState.avatar,
-      name: dataUserState.login,
-      email: dataUserState.email,
-    });
+    navigation.navigate("Home");
 
     console.log(newUser);
+
+    console.log(dataUserState);
     reset();
   };
 
@@ -120,7 +118,7 @@ export const Registration = () => {
             {avatar ? (
               <PhotoArea>
                 <Image source={{ uri: avatar }} style={styles.avatar} />
-                <TouchableOpacity onPress={deletePhoto}>
+                <TouchableOpacity onPress={deletePhoto} style={styles.touch}>
                   <ImageBtnArea
                     style={[styles.imageBtn, { borderColor: "#BDBDBD" }]}
                   >
@@ -130,7 +128,7 @@ export const Registration = () => {
               </PhotoArea>
             ) : (
               <PhotoArea>
-                <TouchableOpacity onPress={addPhoto}>
+                <TouchableOpacity onPress={addPhoto} style={styles.touch}>
                   <ImageBtnArea
                     style={[styles.imageBtn, { borderColor: "#ff6c00" }]}
                   >

@@ -1,12 +1,5 @@
-import { useRoute } from "@react-navigation/native";
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  SafeAreaView,
-  TouchableWithoutFeedback,
-  Keyboard,
-} from "react-native";
+import React from "react";
+import { View, TouchableWithoutFeedback, Keyboard } from "react-native";
 import { styles } from "../RegistrationScreen/RegistrationScreenStyled";
 import {
   AvatarArea,
@@ -15,20 +8,14 @@ import {
   Email,
   UserIconArea,
 } from "./PostsScreenStyled";
-
 import UserIcon from "../../assets/images/usericon.svg";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { MyTabs } from "../HomeScreen/Home";
-import { initialState } from "../../initialState";
+
+const avatar = false;
+const name = "Name Lastname";
+const email = "login@gmail.com";
 
 export const Posts = () => {
-  // const navigation = useNavigation();
-  const [dataUserState, setDataUserState] = useState(initialState.user);
-  const { avatar, name, email } = dataUserState;
-  //  const {
-  //    params: { avatar, name, email },
-  //  } = useRoute();
-
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SafeAreaProvider style={styles.container}>
@@ -45,7 +32,6 @@ export const Posts = () => {
             {email && <Email>{email}</Email>}
           </View>
         </UserArea>
-        <MyTabs />
       </SafeAreaProvider>
     </TouchableWithoutFeedback>
   );
