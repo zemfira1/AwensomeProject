@@ -6,6 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet } from "react-native";
 import { Home } from "./src/Screens/HomeScreen/Home";
+import { Comments } from "./src/Screens/CommentsScreen/CommentsScreen";
 
 const MainStack = createStackNavigator();
 
@@ -38,7 +39,6 @@ export default function App() {
           component={Home}
           options={{ headerShown: false }}
         />
-        {/* 
         <MainStack.Screen
           name="Comments"
           component={Comments}
@@ -49,9 +49,23 @@ export default function App() {
             headerTitleStyle: styles.headerTitleStyle,
             headerTitleAlign: "center",
           }}
-        /> */}
+        />
       </MainStack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  headerStyle: {
+    height: 88,
+    backgroundColor: "#FFFFFF",
+    borderBottomWidth: 1,
+    borderBottomColor: "#BDBDBD",
+    shadowColor: "rgba(0, 0, 0, 0.3)",
+  },
+  headerTitleStyle: {
+    fontFamily: "Roboto-Medium",
+    fontSize: 17,
+  },
+});

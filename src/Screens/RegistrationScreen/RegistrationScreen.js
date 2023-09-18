@@ -153,6 +153,7 @@ export const Registration = () => {
                       onFocus={() => setLoginBorderColor(accentBorderColor)}
                       onBlur={() => setLoginBorderColor(defaultBorderColor)}
                       placeholderTextColor={defaultBorderColor}
+                      style={styles.textSize}
                     />
                   </KeyboardAvoidingView>
                 </InputItem>
@@ -169,6 +170,7 @@ export const Registration = () => {
                       onFocus={() => setEmailBorderColor(accentBorderColor)}
                       onBlur={() => setEmailBorderColor(defaultBorderColor)}
                       placeholderTextColor={defaultBorderColor}
+                      style={styles.textSize}
                     />
                   </KeyboardAvoidingView>
                 </InputItem>
@@ -191,6 +193,7 @@ export const Registration = () => {
                       onFocus={() => setPassBorderColor(accentBorderColor)}
                       onBlur={() => setPassBorderColor(defaultBorderColor)}
                       placeholderTextColor={defaultBorderColor}
+                      style={styles.textSize}
                     />
                   </KeyboardAvoidingView>
                   {!isShow ? (

@@ -46,13 +46,11 @@ export const Title = styled.Text`
 `;
 
 export const ListArea = styled.View`
-  padding-left: 16px;
-  padding-right: 16px;
-  /* gap: 32px; */
+  min-width: 100%;
 `;
 
 export const ImageArea = styled.View`
-  width: 342px;
+  width: 100%;
   height: 240px;
   border-radius: 8px;
   background-color: #bdbdbd;

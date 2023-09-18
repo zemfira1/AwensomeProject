@@ -117,4 +117,8 @@ export const styles = StyleSheet.create({
     bottom: 14,
     right: -12,
   },
+  textSize: {
+    fontSize: 16,
+    width: 200,
+  },
 });

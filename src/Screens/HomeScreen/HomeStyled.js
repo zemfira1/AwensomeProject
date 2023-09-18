@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   logOut: {
     marginRight: 10,
     backgroundColor: "inherit",
@@ -12,8 +12,6 @@ const styles = StyleSheet.create({
   },
   headerStyle: {
     height: 88,
-    paddingLeft: 16,
-    paddingRight: 16,
     backgroundColor: "#FFFFFF",
     borderBottomWidth: 1,
     borderBottomColor: "#BDBDBD",

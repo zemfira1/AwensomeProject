@@ -5,10 +5,10 @@ import { CreatePost } from "../CreatePostsScreen/CreatePostsScreen";
 import { Profile } from "../ProfileScreen/ProfileScreen";
 import { Ionicons } from "@expo/vector-icons";
 import { Posts } from "../PostsScreen/PostsScreen";
-import { styles } from "../RegistrationScreen/RegistrationScreenStyled";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { styles } from "./HomeStyled.js";
 
 const Tab = createBottomTabNavigator();
 
@@ -20,7 +20,15 @@ export const Home = () => {
       initialRouteName="Posts"
       screenOptions={({ route }) => ({
         tabBarShowLabel: false,
-        tabBarStyle: { display: route.name === "CreatePost" ? "none" : "flex" },
+        tabBarStyle: {
+          display: route.name === "CreatePost" ? "none" : "flex",
+          height: 80,
+          borderTopWidth: 1,
+          borderTopColor: "#BDBDBD",
+          shadowColor: "rgba(0, 0, 0, 0.5)",
+          justifyContent: "center",
+          paddingTop: 10,
+        },
         tabBarIcon: ({ focused, color }) => {
           if (route.name === "Posts") {
             return (
@@ -34,7 +42,7 @@ export const Home = () => {
             return (
               <Ionicons
                 name={focused ? "add" : "add"}
-                size={13}
+                size={26}
                 color={color}
               />
             );

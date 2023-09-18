@@ -29,13 +29,15 @@ import AddIcon from "../../assets/images/addicon.svg";
 import DeleteIcon from "../../assets/images/deleteicon.svg";
 import * as ImagePicker from "expo-image-picker";
 import { MaterialIcons } from "@expo/vector-icons";
-import defaultImage from "../../assets/images/Rectangle 23.png";
+import defaultImage from "../../assets/images/rectangle.png";
 import { Fontisto } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { SimpleLineIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 export const Profile = () => {
   const [dataUserState, setDataUserState] = useState(initialState.user);
+  const navigation = useNavigation();
   //const data = initialState.posts.postsList;
   const avatar = false;
 
@@ -67,7 +69,7 @@ export const Profile = () => {
       image: defaultImage,
       name: "Forest",
       location: "Ukraine",
-      comments: 8,
+      comments: 8, //далее это массив, а 8 это длина массива
       likes: 153,
     },
     {
@@ -126,14 +128,20 @@ export const Profile = () => {
               data={data}
               renderItem={({ item }) => (
                 <ListArea>
-                  <ImageArea>
-                    <Image source={item.image} style={styles.imageItem} />
-                  </ImageArea>
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate("CreatePost")} // с передачей данных по id для редактирования
+                  >
+                    <ImageArea>
+                      <Image source={item.image} style={styles.imageItem} />
+                    </ImageArea>
+                  </TouchableOpacity>
                   <Text>{item.name}</Text>
                   <Information>
                     <CommLikes>
                       <InfoPart>
-                        <TouchableOpacity>
+                        <TouchableOpacity
+                          onPress={() => navigation.navigate("Comments")}
+                        >
                           <FontAwesome
                             name="comments-o"
                             size={24}

@@ -88,4 +88,8 @@ export const styles = StyleSheet.create({
     position: "absolute",
     right: 16,
   },
+  textSize: {
+    fontSize: 16,
+    width: 200,
+  },
 });
