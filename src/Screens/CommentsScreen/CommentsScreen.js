@@ -75,6 +75,7 @@ export const Comments = () => {
     //который хранится в стейте (или отправляем на бекенд)
 
     console.log(newComment);
+    setComment("");
   };
 
   return (
@@ -118,7 +119,7 @@ export const Comments = () => {
                 placeholder="Leave a comment..."
                 keyboardType="default"
                 value={comment}
-                onChangeText={() => setComment(comment)}
+                onChangeText={setComment}
                 onFocus={() => setCommentBorderColor(accentBorderColor)}
                 onBlur={() => setCommentBorderColor(defaultBorderColor)}
                 placeholderTextColor="#BDBDBD"

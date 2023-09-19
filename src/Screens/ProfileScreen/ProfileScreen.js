@@ -23,6 +23,7 @@ import {
   CommLikes,
   InfoPart,
   InfoText,
+  TitleEl,
 } from "./ProfileScreenStiled";
 import imageBG from "../../assets/images/photo.png";
 import AddIcon from "../../assets/images/addicon.svg";
@@ -135,7 +136,7 @@ export const Profile = () => {
                       <Image source={item.image} style={styles.imageItem} />
                     </ImageArea>
                   </TouchableOpacity>
-                  <Text>{item.name}</Text>
+                  <TitleEl>{item.name}</TitleEl>
                   <Information>
                     <CommLikes>
                       <InfoPart>

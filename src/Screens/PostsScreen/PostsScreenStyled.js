@@ -2,14 +2,13 @@ import styled from "styled-components/native";
 import { StyleSheet } from "react-native";
 
 export const UserArea = styled.View`
-  margin-bottom: 32px;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 8px;
   position: absolute;
-  top: 32px;
   left: 16px;
+  top: 32px;
 `;
 
 export const AvatarArea = styled.Image`
@@ -32,6 +31,41 @@ export const UserIconArea = styled.View`
   border: 1px solid #bdbdbd;
 `;
 
+export const ListArea = styled.View`
+  width: 100%;
+`;
+
+export const ImageArea = styled.View`
+  width: 100%;
+  height: 240px;
+  border-radius: 8px;
+  background-color: #bdbdbd;
+  margin-bottom: 8px;
+`;
+
+export const Title = styled.Text`
+  font-size: "Roboto-Medium";
+  font-size: 16px;
+  margin-bottom: 8px;
+`;
+
+export const Information = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 32px;
+`;
+
+export const InfoPart = styled.View`
+  flex-direction: row;
+  gap: 6px;
+  align-items: baseline;
+`;
+
+export const InfoText = styled.Text`
+  color: #212121;
+  font-size: 16px;
+`;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -39,10 +73,9 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
   },
-  navigation: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 60,
+  imageItem: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 8,
   },
 });

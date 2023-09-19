@@ -53,7 +53,7 @@ export const InputArea = styled.View`
 export const InputItem = styled.View`
   min-width: 100%;
   height: 50px;
-  padding: 16px;
+  padding: 15px;
   border: 1px solid #bdbdbd;
   border-radius: 8px;
   background-color: #f6f6f6;
@@ -71,7 +71,7 @@ export const ButtonItem = styled.View`
 
 export const ButonText = styled.Text`
   color: #1b4371;
-  font-size: 16px;
+  font-size: 15px;
 `;
 
 export const styles = StyleSheet.create({

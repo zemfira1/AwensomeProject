@@ -57,6 +57,12 @@ export const ImageArea = styled.View`
   margin-bottom: 8px;
 `;
 
+export const TitleEl = styled.Text`
+  font-size: "Roboto-Medium";
+  font-size: 16px;
+  margin-bottom: 8px;
+`;
+
 export const Information = styled.View`
   flex-direction: row;
   justify-content: space-between;
